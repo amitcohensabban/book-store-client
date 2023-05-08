@@ -10,6 +10,8 @@ import { LoginPageComponent } from './components/auth/login-page/login-page.comp
 import { LoginFormComponent } from './components/auth/login-page/login-form/login-form.component';
 import { AllBooksComponent } from './components/books/all-books/all-books.component';
 import { MyBooksComponent } from './components/books/my-books/my-books.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { MyBooksComponent } from './components/books/my-books/my-books.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

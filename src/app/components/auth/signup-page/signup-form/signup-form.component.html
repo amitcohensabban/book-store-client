@@ -1,1 +1,116 @@
-<p>signup-form works!</p>
+<form class="form-container"  [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+  <div class="fields-container">
+    <h1>sign up </h1>
+    <div class="field-container">
+      <label for="firstName">First Name</label>
+
+      <input
+        id="firstName"
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+        placeholder="enter your name"
+      />
+
+      <div
+        *ngIf="
+          !signupForm.get('firstName')?.valid &&
+          signupForm.get('firstName')?.touched
+        "
+        class="error-message"
+      >
+        Please enter your first name
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="lastName">Last name</label>
+
+      <input
+        id="lastName"
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+        placeholder="enter your last name"
+      />
+
+      <div
+        *ngIf="
+          !signupForm.get('lastName')?.valid &&
+          signupForm.get('lastName')?.touched
+        "
+        class="error-message"
+      >
+        Please enter your last name
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="email">email</label>
+      <input
+        id="email"
+        type="text"
+        class="form-control"
+        formControlName="email"
+        placeholder="enter your email "
+      />
+
+      <div
+        *ngIf="
+          !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a email
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="password">Password</label>
+
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="enter your password"
+      />
+
+      <div
+        *ngIf="
+          !signupForm.get('password')?.valid &&
+          signupForm.get('password')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a password
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="confirm-password"> confirm Password</label>
+
+      <input
+        id="confirm-password"
+        type="password"
+        class="form-control"
+        formControlName="confirmPassword"
+        placeholder="confirm password"
+      />
+
+      <div
+        *ngIf="
+          !signupForm.get('password')?.valid &&
+          signupForm.get('password')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a password
+      </div>
+    </div>
+
+
+    <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+  </div>
+</form>
