@@ -1,10 +1,7 @@
-<form class="form-container"  [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-
+<form class="form-container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <div class="fields-container">
-    <h1>sign up </h1>
+    <h1>sign up</h1>
     <div class="field-container">
-      <label for="firstName">First Name</label>
-
       <input
         id="firstName"
         type="text"
@@ -25,8 +22,6 @@
     </div>
 
     <div class="field-container">
-      <label for="lastName">Last name</label>
-
       <input
         id="lastName"
         type="text"
@@ -47,7 +42,6 @@
     </div>
 
     <div class="field-container">
-      <label for="email">email</label>
       <input
         id="email"
         type="text"
@@ -67,8 +61,6 @@
     </div>
 
     <div class="field-container">
-      <label for="password">Password</label>
-
       <input
         id="password"
         type="password"
@@ -89,8 +81,6 @@
     </div>
 
     <div class="field-container">
-      <label for="confirm-password"> confirm Password</label>
-
       <input
         id="confirm-password"
         type="password"
@@ -110,7 +100,8 @@
       </div>
     </div>
 
-
-    <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+    <button class="raise" type="submit" [disabled]="!signupForm.valid">
+      Submit
+    </button>
   </div>
 </form>

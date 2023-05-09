@@ -1,1 +1,52 @@
-<p>login-form works!</p>
+<form
+  class="form-container"
+  [formGroup]="loginForm"
+  (ngSubmit)="handleSubmit()"
+>
+  <div class="fields-container">
+    <h1>LOGIN</h1>
+    <div class="field-container">
+      <label for="email">email</label>
+
+      <input
+        id="email"
+        type="text"
+        class="form-control"
+        formControlName="email"
+      />
+
+      <div
+        *ngIf="
+          !loginForm.get('email')?.valid && loginForm.get('email')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a username
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="password">Password</label>
+
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+      />
+
+      <div
+        *ngIf="
+          !loginForm.get('password')?.valid &&
+          loginForm.get('password')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a password
+      </div>
+    </div>
+    <button class="raise" type="submit" [disabled]="!loginForm.valid">
+      Submit
+    </button>
+  </div>
+</form>

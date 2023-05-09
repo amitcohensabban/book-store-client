@@ -7,9 +7,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h1 {
-    margin-bottom: -15px;
-  }
   .fields-container {
     padding: 25px;
     position: relative;
@@ -31,18 +28,12 @@
     display: flex;
     flex-direction: column;
     height: 50px;
-
-    label {
-      color: #363636;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
     .form-control {
       border: none;
       width: 100%;
       border-radius: 5px;
       color: #363636;
+      height: 25px;
     }
     .error-message {
       font-size: 13px;
@@ -50,12 +41,44 @@
   }
 }
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: #b5e7ef,
+);
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
 button {
-  color: black;
+  color: var(--color);
+  transition: 0.25s;
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #b5e7ef;
+  }
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
   border-radius: 5px;
-  padding: 10px 25px;
-  font-weight: bolder;
-  font-size: large;
   cursor: pointer;
-  transition: all 0.8s ease;
 }
