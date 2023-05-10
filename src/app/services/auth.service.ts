@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap, map } from 'rxjs';
+import {from, BehaviorSubject, Observable, tap, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
@@ -17,6 +17,10 @@ export class AuthService {
   isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  isUserAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+
   constructor(private router: Router, private http: HttpClient) { }
 
 
@@ -44,6 +48,7 @@ export class AuthService {
         localStorage.setItem('token', res.token);
         localStorage.setItem('userName', data.email);
         this.setToken(token);
+        this.checkIsUserAdmin(data.email)
         this.isUserLoggedIn.next(true);
         this.router.navigate(['/my-books']);
 
@@ -52,6 +57,20 @@ export class AuthService {
   }
   setToken(value: string) {
     this._token.next(value);
+  }
+  async checkIsUserAdmin(email: string): Promise<boolean> {
+    console.log(`Checking if user ${email} is an admin...`);
+
+    try {
+      const res: any = await this.http.get<boolean>(`${environment.serverUrl}AppUser/Admin?email=${email}`).toPromise();
+      await this.isUserAdmin.next(res);
+      console.log(res);
+      localStorage.setItem('Admin', res + '');
+      return res;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
   }
 
 }

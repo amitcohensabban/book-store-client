@@ -5,6 +5,7 @@
     <a routerLink="sign-up" *ngIf="!isUserLoggedIn" >SIGN-UP</a>
     <a routerLink="all-books">ALL BOOKS</a>
     <a routerLink="my-books" *ngIf="isUserLoggedIn" >MY BOOKS</a>
+    <a routerLink="add-book" *ngIf="isUserAdmin">ADD BOOK</a>
   </div>
   <div class="log_out_button" *ngIf="isUserLoggedIn" (click)="logOut()" >
     <div class="log_out_profile_pic"></div>
