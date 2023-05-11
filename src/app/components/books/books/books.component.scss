@@ -1,6 +1,6 @@
 .books-container {
   position: absolute;
-  top: 150px;
+  top: 185px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -98,3 +98,29 @@
   color: #fff;
   transform: translateY(-7px);
 }
+.search-container{
+height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.search{
+
+
+    width: 80vw;
+    height: 20px;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transform-style: preserve-3d;
+}
+
+

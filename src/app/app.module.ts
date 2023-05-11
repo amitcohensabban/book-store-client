@@ -11,7 +11,7 @@ import { LoginFormComponent } from './components/auth/login-page/login-form/logi
 import { AllBooksComponent } from './components/books/all-books/all-books.component';
 import { MyBooksComponent } from './components/books/my-books/my-books.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLoginPageComponent } from './components/auth/admin-login-page/admin-login-page.component';
 import { BooksComponent } from './components/books/books/books.component';
 @NgModule({
@@ -31,7 +31,7 @@ import { BooksComponent } from './components/books/books/books.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,FormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

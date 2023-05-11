@@ -7,14 +7,27 @@ import { Component,Input, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit{
   @Input() books:any[]
+  filteredBooks: any[];
+  searchTerm: string;
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+    setTimeout(() => {
+          this.filteredBooks = this.books;
 
+    },1200)
   }
-  constructor( ){
-    this.books=[]
+
+  constructor() {
+    this.books = [];
+    this.filteredBooks = [];
+    this.searchTerm = '';
   }
 
-
+  filterBooks(): void {
+    this.filteredBooks = this.books.filter(book =>
+      book.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    console.log(this.filteredBooks);
+  }
 
 }
