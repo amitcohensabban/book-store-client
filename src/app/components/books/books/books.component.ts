@@ -1,14 +1,20 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss']
 })
-export class BooksComponent {
-
+export class BooksComponent implements OnInit{
   @Input() books:any[]
-  constructor(  ){
+
+  ngOnInit(): void {
+
+  }
+  constructor( ){
     this.books=[]
   }
+
+
+
 }

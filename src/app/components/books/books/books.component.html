@@ -1,1 +1,22 @@
-<p>books works!</p>
+<div class="books-container">
+  <div class="book" *ngFor="let book of books">
+    <div
+      class="photo"
+      [ngClass]="{
+        prisoner: book.id === '1',
+        stone: book.id === '2',
+        phoenix: book.id === '3',
+        prince:book.id==='4',
+        hallows: book.id === '5'
+      }"
+    ></div>
+
+    <div class="fields">
+      <div>
+        {{ book.title | uppercase }}
+      </div>
+      <div>PRICE : {{ book.price|currency:'USD' }}</div>
+      <button class="button">VIEW DETAILS</button>
+    </div>
+  </div>
+</div>

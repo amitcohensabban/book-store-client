@@ -1,0 +1,100 @@
+.books-container {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+
+  .book {
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    -webkit-box-shadow: 0px 3px 34px -5px #000000;
+    box-shadow:10px 10px 10px rgba(0, 0, 0, 0.148);
+    padding: 10px;
+    border-radius: 10px;
+    border: 4px ridge rgb(103 168 221 / 44%); // background-color: #e2e6ea;
+    transition: transform 0.4s ease-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+    .photo {
+      width: 115px;
+      height: 175px;
+      border-radius: 5px;
+    }
+    .prisoner {
+      background: url("../../../photos/prisoner.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .stone {
+      background: url("../../../photos/stone.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .phoenix {
+      background: url("../../../photos/phoenix.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .prince{
+      background: url("../../../photos/prince.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+    .hallows{
+      background: url("../../../photos/hallows.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+
+    .fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-weight: bolder;
+    }
+  }
+}
+
+.button {
+  width: 140px;
+  height: 45px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #59625e;
+  box-shadow: 0px 15px 20px rgba(178, 201, 192, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
