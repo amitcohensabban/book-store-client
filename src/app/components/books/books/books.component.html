@@ -15,7 +15,7 @@
       *ngFor="
         let book of filteredBooks
           | paginate : { itemsPerPage: 3, currentPage: p }
-      "
+      " (click)="selectedBook = book"
     >
       <div
         class="photo"
@@ -37,7 +37,17 @@
       </div>
     </div>
   </div>
-  
+
+
+  <div *ngIf="selectedBook" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="selectedBook = null">&times;</span>
+      <h2>{{selectedBook.title}}</h2>
+      <p>{{selectedBook.description}}</p>
+    </div>
+  </div>
+
+
   <div class="pagination-container">
     <pagination-controls
       class="my-pagination"
@@ -45,3 +55,5 @@
     ></pagination-controls>
   </div>
 </div>
+
+

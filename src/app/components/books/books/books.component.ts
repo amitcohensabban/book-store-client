@@ -10,6 +10,8 @@ export class BooksComponent implements OnInit{
   filteredBooks: any[];
   searchTerm: string;
   p: number = 1;
+  selectedBook: any;
+
    ngOnInit(): void {
     setTimeout(() => {
           this.filteredBooks = this.books;
