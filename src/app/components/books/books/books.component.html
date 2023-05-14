@@ -1,25 +1,47 @@
-<div class="search-container">
-<input class="search" type="text" [(ngModel)]="searchTerm" (input)="filterBooks()" placeholder="Search books...">
-</div>
-<div class="books-container">
-  <div class="book" *ngFor="let book of filteredBooks">
-    <div
-      class="photo"
-      [ngClass]="{
-        prisoner: book.id === '1',
-        stone: book.id === '2',
-        phoenix: book.id === '3',
-        prince:book.id==='4',
-        hallows: book.id === '5'
-      }"
-    ></div>
+<div class="component-container">
+  <div class="search-container">
+    <input
+      class="search"
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="filterBooks()"
+      placeholder="Search books..."
+    />
+  </div>
 
-    <div class="fields">
-      <div>
-        {{ book.title | uppercase }}
+  <div class="books-container">
+    <div
+      class="book"
+      *ngFor="
+        let book of filteredBooks
+          | paginate : { itemsPerPage: 3, currentPage: p }
+      "
+    >
+      <div
+        class="photo"
+        [ngClass]="{
+          prisoner: book.id === '1',
+          stone: book.id === '2',
+          phoenix: book.id === '3',
+          prince: book.id === '4',
+          hallows: book.id === '5'
+        }"
+      ></div>
+
+      <div class="fields">
+        <div>
+          {{ book.title | uppercase }}
+        </div>
+        <div>PRICE : {{ book.price | currency : "USD" }}</div>
+        <button class="button">VIEW DETAILS</button>
       </div>
-      <div>PRICE : {{ book.price|currency:'USD' }}</div>
-      <button class="button">VIEW DETAILS</button>
     </div>
+  </div>
+  
+  <div class="pagination-container">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="p = $event"
+    ></pagination-controls>
   </div>
 </div>

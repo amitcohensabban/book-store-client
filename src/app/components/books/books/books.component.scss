@@ -124,3 +124,21 @@ align-items: center;
 }
 
 
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #9cc1cb;
+  color: #fff;
+  border-radius: 50%;
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 400px; // adjust as needed
+}
+.my-pagination ::ng-deep .ngx-pagination a{
+  border-radius: 20px;
+  font-weight: bold;
+  
+}
+
+

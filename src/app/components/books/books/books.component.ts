@@ -9,7 +9,7 @@ export class BooksComponent implements OnInit{
   @Input() books:any[]
   filteredBooks: any[];
   searchTerm: string;
-
+  p: number = 1;
    ngOnInit(): void {
     setTimeout(() => {
           this.filteredBooks = this.books;
