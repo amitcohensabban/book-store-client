@@ -73,4 +73,9 @@ export class AuthService {
     }
   }
 
+
+  getUserIdByEmail(email: string|null): Observable<string> {
+    return this.http.get<string>(`${environment.serverUrl}AppUser?email=${email}`);
+  }
+
 }

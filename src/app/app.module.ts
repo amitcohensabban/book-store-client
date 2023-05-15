@@ -15,6 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLoginPageComponent } from './components/auth/admin-login-page/admin-login-page.component';
 import { BooksComponent } from './components/books/books/books.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { BooksComponent } from './components/books/books/books.component';
     AllBooksComponent,
     MyBooksComponent,
     AdminLoginPageComponent,
-    BooksComponent
+    BooksComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
