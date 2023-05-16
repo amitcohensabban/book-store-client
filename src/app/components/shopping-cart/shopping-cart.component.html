@@ -1,1 +1,30 @@
-<p>shopping-cart works!</p>
+<div  class="container">
+    <div class="products" >
+      <div class="item" *ngFor="let book of cart.books" >
+        <div
+        class="photo"
+        [ngClass]="{
+          prisoner: book.id === '1',
+          stone: book.id === '2',
+          phoenix: book.id === '3',
+          prince: book.id === '4',
+          hallows: book.id === '5'
+        }"
+      ></div>
+
+
+      <div>BOOK :    {{book.title|uppercase}}   </div>
+      <div> PRICE   {{book.price|currency:'USD'}}   </div>
+      <div>  AMOUNT:  {{book.quantity}}</div>
+
+
+    </div>
+
+  </div>
+  <div class="details">
+    <div>TOTAL BOOKS :{{cart.totalBooks}}</div>
+    <div>TOTAL PRICE{{cart.totalPrice|currency:'USD'}}</div>
+    <button class="button">CHECKOUT</button>
+
+  </div>
+</div>

@@ -15,7 +15,7 @@
       *ngFor="
         let book of filteredBooks
           | paginate : { itemsPerPage: 3, currentPage: p }
-      " (click)="selectedBook = book"
+      "
     >
       <div
         class="photo"
@@ -33,7 +33,7 @@
           {{ book.title | uppercase }}
         </div>
         <div>PRICE : {{ book.price | currency : "USD" }}</div>
-        <button class="button">VIEW DETAILS</button>
+        <button class="button" (click)="selectedBook = book">VIEW DETAILS</button>
         <button class="button" (click)="selectedBook = book; addToCart(selectedBook.id)">ADD TO CART</button>
 
       </div>

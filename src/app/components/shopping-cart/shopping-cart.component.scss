@@ -1,0 +1,97 @@
+.container {
+  border: 0;
+  background: var(--cp-color-1);
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 120px;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+.details {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: relative;
+  right: 10%;
+}
+.item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.148);
+  padding: 10px;
+}
+
+.photo {
+  width: 70px;
+  height: 105px;
+  border-radius: 5px;
+}
+.prisoner {
+  background: url("../../photos/prisoner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.stone {
+  background: url("../../photos/stone.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.phoenix {
+  background: url("../../photos/phoenix.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.prince {
+  background: url("../../photos/prince.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hallows {
+  background: url("../../photos/hallows.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.button {
+  width: 140px;
+  height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #59625e;
+  box-shadow: 0px 15px 20px rgba(178, 201, 192, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}

@@ -7,13 +7,20 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  cart:any[]=[];
+  cart:any=[];
   constructor(   private cartService: ShoppingCartService,private auth:AuthService) { }
   public ngOnInit(): void {
-    const userId = this.auth.getUserIdByEmail(localStorage.getItem('userName'));
-  }
+    const userEmail = localStorage.getItem('userName');
+    this.auth.getUserIdByEmail(userEmail).subscribe(response => {
+      const userId = response.userId; // Extract the userId value
+      this.cartService.getCart(userId).subscribe(cart => {
+        this.cart = cart;
+        console.log(this.cart);
+      });
+    });
 
-  public addBookToCart(userId: string, bookId: string): void {
+  }
+    public addBookToCart(userId: string, bookId: string): void {
     this.cartService.addBookToCart(userId, bookId).subscribe(cart => this.cart = cart);
   }
 

@@ -9,6 +9,11 @@ export class ShoppingCartService {
   private cart: any[] = [];
 
   constructor(private http: HttpClient) { }
+  public getCart(userId:string): Observable<any> {
+    console.log(userId);
+
+    return this.http.get(`${environment.serverUrl}Cart/user/${userId}`);
+  }
   public addBookToCart(userId: string, bookId: string): Observable<any> {
     return this.http.post(`${environment.serverUrl}Cart/add?userId=${userId}&bookId=${bookId}`, { userId, bookId });
   }
