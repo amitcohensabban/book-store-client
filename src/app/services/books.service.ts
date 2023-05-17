@@ -21,7 +21,13 @@ export class BooksService {
     });
   }
 
-
+  addBook(newBook: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<any>(`${environment.serverUrl}Books`, newBook, {
+      headers: headers
+    });
+  }
 }
 
 

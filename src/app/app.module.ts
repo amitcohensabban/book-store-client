@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLoginPageComponent } from './components/auth/admin-login-page/admin-login-page.component';
 import { BooksComponent } from './components/books/books/books.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { AddBookComponent } from './components/books/add-book/add-book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     MyBooksComponent,
     AdminLoginPageComponent,
     BooksComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
