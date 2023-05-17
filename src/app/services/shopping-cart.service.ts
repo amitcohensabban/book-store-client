@@ -21,6 +21,6 @@ export class ShoppingCartService {
     return this.http.delete<any>(`${environment.serverUrl}Cart/remove?userId=${userId}&bookId=${bookId}`, { params: { userId, bookId } });
   }
   public checkout(userId: string): Observable<void> {
-    return this.http.post<void>(`${environment.serverUrl}/checkout`, { userId });
+    return this.http.post<void>(`${environment.serverUrl}Cart/checkout?userId=${userId}`, { userId });
   }
 }

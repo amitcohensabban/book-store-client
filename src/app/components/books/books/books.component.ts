@@ -12,6 +12,7 @@ export class BooksComponent implements OnInit {
   searchTerm: string;
   p: number = 1;
   selectedBook: any;
+  selectedBookCart:any;
   @Output() bookAdded = new EventEmitter<{ userId: string; bookId: string }>(); // new EventEmitter property
 
   ngOnInit(): void {

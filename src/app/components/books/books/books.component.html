@@ -34,7 +34,7 @@
         </div>
         <div>PRICE : {{ book.price | currency : "USD" }}</div>
         <button class="button" (click)="selectedBook = book">VIEW DETAILS</button>
-        <button class="button" (click)="selectedBook = book; addToCart(selectedBook.id)">ADD TO CART</button>
+        <button class="button" (click)="selectedBookCart = book; addToCart(selectedBookCart.id)">ADD TO CART</button>
 
       </div>
     </div>
