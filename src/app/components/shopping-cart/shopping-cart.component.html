@@ -16,7 +16,7 @@
       <div>BOOK :    {{book.title|uppercase}}   </div>
       <div> PRICE   {{book.price|currency:'USD'}}   </div>
       <div>  AMOUNT:  {{book.quantity}}</div>
-
+        <button class="remove" (click)="selectedBook=book; removeBookFromCart(selectedBook.id)">REMOVE</button>
 
     </div>
 

@@ -10,6 +10,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ShoppingCartComponent implements OnInit {
   cart: any = [];
   userId: string = '';
+  selectedBook:any;
   constructor(
     private router: Router,
     private cartService: ShoppingCartService,
@@ -31,9 +32,11 @@ export class ShoppingCartComponent implements OnInit {
       .subscribe((cart) => (this.cart = cart));
   }
 
-  // public removeBookFromCart(userId: string, bookId: string): void {
-  //   this.cartService.removeBookFromCart(userId, bookId).subscribe(cart => this.cart = cart);
-  // }
+  public removeBookFromCart( bookId: string): void {
+    this.cartService.removeBookFromCart(this.userId, bookId).subscribe(cart => this.cart = cart);
+    console.log(this.cart);
+
+  }
 
   public checkout(): void {
     this.cartService.checkout(this.userId).subscribe(() => (this.cart = null));
