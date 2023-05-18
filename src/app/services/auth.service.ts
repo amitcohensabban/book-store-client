@@ -3,7 +3,7 @@ import {from, BehaviorSubject, Observable, tap, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
-
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -77,5 +77,8 @@ export class AuthService {
   getUserIdByEmail(email: string|null): Observable<{userId:string}> {
     return this.http.get<{userId:string}>(`${environment.serverUrl}AppUser?email=${email}`);
   }
-
+  updatePrivateDetails(details: any) {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.patch(`${environment.serverUrl}AppUser/updateDetails`, details, { headers });
+  }
 }

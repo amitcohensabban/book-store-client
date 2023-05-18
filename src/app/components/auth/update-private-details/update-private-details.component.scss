@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+.form-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .fields-container {
+    padding: 25px;
+    position: relative;
+    height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: 30vw;
+    min-width: 300px;
+    border-radius: 10px;
+    color: #292424;
+    background: linear-gradient(315deg, #ffffff, #d7e1ec);
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 16px -7px #000000;
+    box-shadow: 0px 0px 16px -7px #000000;
+  }
+  .field-container {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    .form-control {
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      color: #363636;
+      height: 25px;
+    }
+    .error-message {
+      font-size: 13px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: #b5e7ef,
+);
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #b5e7ef;
+  }
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  border-radius: 5px;
+  cursor: pointer;
+}

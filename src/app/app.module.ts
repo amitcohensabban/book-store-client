@@ -17,6 +17,7 @@ import { AdminLoginPageComponent } from './components/auth/admin-login-page/admi
 import { BooksComponent } from './components/books/books/books.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { AddBookComponent } from './components/books/add-book/add-book.component';
+import { UpdatePrivateDetailsComponent } from './components/auth/update-private-details/update-private-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { AddBookComponent } from './components/books/add-book/add-book.component
     AdminLoginPageComponent,
     BooksComponent,
     ShoppingCartComponent,
-    AddBookComponent
+    AddBookComponent,
+    UpdatePrivateDetailsComponent
   ],
   imports: [
     BrowserModule,

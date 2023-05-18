@@ -1,0 +1,88 @@
+<form class="form-container" [formGroup]="updatePrivateDetailsForm" (ngSubmit)="onSubmit()">
+  <div class="fields-container">
+    <h1>UPDATE DETAILS</h1>
+    <div class="field-container">
+      <input
+        id="oldEmail"
+        type="email"
+        class="form-control"
+        formControlName="oldEmail"
+        placeholder="enter your old email"
+      />
+
+      <div
+        *ngIf="
+          !updatePrivateDetailsForm.get('oldEmail')?.valid &&
+          updatePrivateDetailsForm.get('oldEmail')?.touched
+        "
+        class="error-message"
+      >
+        Please enter your old email
+      </div>
+    </div>
+
+    <div class="field-container">
+      <input
+        id="newEmail"
+        type="email"
+        class="form-control"
+        formControlName="newEmail"
+        placeholder="enter your new email"
+      />
+
+      <div
+        *ngIf="
+          !updatePrivateDetailsForm.get('newEmail')?.valid &&
+          updatePrivateDetailsForm.get('newEmail')?.touched
+        "
+        class="error-message"
+      >
+        Please enter your new email
+      </div>
+    </div>
+
+    <div class="field-container">
+      <input
+        id="oldPassword"
+        type="password"
+        class="form-control"
+        formControlName="oldPassword"
+        placeholder="enter your old Password"
+      />
+
+      <div
+        *ngIf="
+          !updatePrivateDetailsForm.get('oldPassword')?.valid &&
+          updatePrivateDetailsForm.get('oldPassword')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a oldPassword
+      </div>
+    </div>
+
+    <div class="field-container">
+      <input
+        id="newPassword"
+        type="password"
+        class="form-control"
+        formControlName="newPassword"
+        placeholder="newPassword"
+      />
+
+      <div
+        *ngIf="
+          !updatePrivateDetailsForm.get('newPassword')?.valid &&
+          updatePrivateDetailsForm.get('newPassword')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a newPassword
+      </div>
+    </div>
+
+    <button class="raise" type="submit" [disabled]="!updatePrivateDetailsForm.valid">
+      Submit
+    </button>
+  </div>
+</form>

@@ -8,6 +8,7 @@ import { AdminLoginPageComponent } from './components/auth/admin-login-page/admi
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { AddBookComponent } from './components/books/add-book/add-book.component';
+import { UpdatePrivateDetailsComponent } from './components/auth/update-private-details/update-private-details.component';
 
 const routes: Routes = [
   {path:'login',component:LoginPageComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'admin-login',component:AdminLoginPageComponent},
   {path:"cart",component:ShoppingCartComponent},
   {path:'admin-add-book',component:AddBookComponent},
+  {path:'update-private-details',component:UpdatePrivateDetailsComponent},
   { path: '', redirectTo: 'all-books', pathMatch: 'full' },
   { path: '**', redirectTo: 'all-books' },
 
