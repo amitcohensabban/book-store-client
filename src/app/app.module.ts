@@ -40,7 +40,7 @@ import { UpdatePrivateDetailsComponent } from './components/auth/update-private-
     HttpClientModule,
     ReactiveFormsModule,FormsModule,NgxPaginationModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

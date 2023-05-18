@@ -35,5 +35,17 @@ export class UpdatePrivateDetailsComponent {
       );
     }
   }
+  onDeleteAccount() {
+    if (confirm('Are you sure you want to delete your account?')) {
+      this.authService.deleteAccount(localStorage.getItem('userName')).subscribe(
+        (result) => {
+          console.log('Account deleted:', result);
+        },
+        (error) => {
+          console.log('Account deletion failed:', error);
+        }
+      );
+    }
+  }
 
 }
