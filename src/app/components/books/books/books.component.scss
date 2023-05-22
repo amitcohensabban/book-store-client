@@ -176,3 +176,21 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
+.suggestions-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1;
+  width: 80vw;
+  top: 153px;
+  .suggestion {
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+    :hover {
+      background-color: #575756;
+    }
+  }
+
+}

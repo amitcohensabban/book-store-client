@@ -13,7 +13,7 @@ export class BooksComponent implements OnInit {
   p: number = 1;
   selectedBook: any;
   selectedBookCart:any;
-  @Output() bookAdded = new EventEmitter<{ userId: string; bookId: string }>(); // new EventEmitter property
+  @Output() bookAdded = new EventEmitter<{ userId: string; bookId: string }>();
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -31,7 +31,14 @@ export class BooksComponent implements OnInit {
     this.filteredBooks = this.books.filter((book) =>
       book.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
-    console.log(this.filteredBooks);
+  }
+    selectBook(book: any): void {
+    this.selectedBook = book;
+    this.resetSearch();
+  }
+    resetSearch(): void {
+    this.searchTerm = '';
+    this.filterBooks();
   }
 
   public async addToCart(bookId: string): Promise<void> {

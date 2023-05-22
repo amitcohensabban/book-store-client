@@ -7,13 +7,23 @@
       (input)="filterBooks()"
       placeholder="Search books..."
     />
+    <div class="suggestions-container" *ngIf="searchTerm && filteredBooks.length > 0" >
+      <div
+        class="suggestion"
+        *ngFor="let book of filteredBooks"
+        (click)="selectBook(book)"
+      >
+        {{ book.title }}
+      </div>
+    </div>
+
   </div>
 
   <div class="books-container">
     <div
       class="book"
       *ngFor="
-        let book of filteredBooks
+        let book of books
           | paginate : { itemsPerPage: 3, currentPage: p }
       "
     >
@@ -44,8 +54,8 @@
   <div *ngIf="selectedBook" class="modal">
     <div class="modal-content">
       <span class="close" (click)="selectedBook = null">&times;</span>
-      <h2>{{selectedBook.title}}</h2>
-      <p>{{selectedBook.description}}</p>
+      <h2>{{ selectedBook.title }}</h2>
+      <p>{{ selectedBook.description }}</p>
     </div>
   </div>
 

@@ -26,6 +26,7 @@ export class ShoppingCartComponent implements OnInit {
       });
     });
   }
+
   public addBookToCart(userId: string, bookId: string): void {
     this.cartService
       .addBookToCart(userId, bookId)
