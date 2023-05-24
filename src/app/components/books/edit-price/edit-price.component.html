@@ -1,0 +1,53 @@
+<form
+  class="form-container"
+  [formGroup]="priceForm"
+  (ngSubmit)="handleSubmit()"
+>
+  <div class="fields-container">
+    <h1><ng-content></ng-content></h1>
+    <div class="field-container">
+      <label for="price">price</label>
+
+      <input
+        id="price"
+        type="text"
+        class="form-control"
+        formControlName="price"
+      />
+
+      <div
+        *ngIf="
+          !priceForm.get('price')?.valid && priceForm.get('price')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a valid price
+      </div>
+    </div>
+
+    <div class="field-container">
+      <label for="bookId">bookId</label>
+
+      <input
+        id="bookId"
+        type="text"
+        class="form-control"
+        formControlName="bookId"
+      />
+
+      <div
+        *ngIf="
+          !priceForm.get('bookId')?.valid && priceForm.get('bookId')?.touched
+        "
+        class="error-message"
+      >
+        Please enter a valid bookId
+      </div>
+    </div>
+
+
+    <button class="raise" type="submit" [disabled]="!priceForm.valid">
+      Submit
+    </button>
+  </div>
+</form>

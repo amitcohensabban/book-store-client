@@ -186,11 +186,12 @@ h2 {
   top: 153px;
   .suggestion {
     cursor: pointer;
-    height: 50px;
+    height: 45px;
     width: 100%;
-    :hover {
-      background-color: #575756;
-    }
+    border-radius: 5px;
   }
 
+}
+.suggestion:hover {
+  background-color: #bbdae4;
 }

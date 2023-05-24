@@ -28,6 +28,15 @@ export class BooksService {
       headers: headers
     });
   }
+
+  updateBookPrice(bookId: string, newPrice: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `${environment.serverUrl}Books/${bookId}?price=${newPrice}`;
+    return this.http.patch<any>(url, null, {
+      headers: headers
+    });
+  }
 }
 
 

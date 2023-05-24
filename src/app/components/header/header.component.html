@@ -7,6 +7,8 @@
     <a routerLink="all-books">ALL BOOKS</a>
     <a routerLink="my-books" *ngIf="isUserLoggedIn" >MY BOOKS</a>
     <a routerLink="admin-add-book" *ngIf="isUserAdmin">ADD BOOK</a>
+    <a routerLink="edit-price" *ngIf="isUserAdmin">EDIT PRICE</a>
+
   </div>
   <a routerLink="update-private-details" *ngIf="isUserLoggedIn">UPDATE DETAILS</a>
   <a routerLink="cart" class="cart" *ngIf="isUserLoggedIn">

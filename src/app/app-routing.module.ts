@@ -10,6 +10,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { AddBookComponent } from './components/books/add-book/add-book.component';
 import { UpdatePrivateDetailsComponent } from './components/auth/update-private-details/update-private-details.component';
 import { LoginGuard } from './guards/login.guard';
+import { EditPriceComponent } from './components/books/edit-price/edit-price.component';
 const routes: Routes = [
   {path:'login',component:LoginPageComponent, canActivate: [LoginGuard]},
   {path:'sign-up',component:SignupPageComponent, canActivate: [LoginGuard]},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"cart",component:ShoppingCartComponent,canActivate:[AuthGuard]},
   {path:'admin-add-book',component:AddBookComponent,canActivate:[AuthGuard]},
   {path:'update-private-details',component:UpdatePrivateDetailsComponent,canActivate:[AuthGuard]},
+  {path:'edit-price',component:EditPriceComponent},
   { path: '', redirectTo: 'all-books', pathMatch: 'full' },
   { path: '**', redirectTo: 'all-books' },
 
