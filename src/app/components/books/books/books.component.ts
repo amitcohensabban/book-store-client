@@ -12,12 +12,15 @@ export class BooksComponent implements OnInit {
   searchTerm: string;
   p: number = 1;
   selectedBook: any;
-  selectedBookCart:any;
+  selectedBookCart: any;
+  searchBooks: any[];
+
   @Output() bookAdded = new EventEmitter<{ userId: string; bookId: string }>();
 
   ngOnInit(): void {
     setTimeout(() => {
       this.filteredBooks = this.books;
+      this.searchBooks = this.books;
     }, 1200);
   }
 
@@ -25,20 +28,16 @@ export class BooksComponent implements OnInit {
     this.books = [];
     this.filteredBooks = [];
     this.searchTerm = '';
+    this.searchBooks = [];
   }
 
   filterBooks(): void {
-    this.filteredBooks = this.books.filter((book) =>
+    this.filteredBooks = this.searchBooks.filter((book) =>
       book.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
-    selectBook(book: any): void {
+  selectBook(book: any): void {
     this.selectedBook = book;
-    this.resetSearch();
-  }
-    resetSearch(): void {
-    this.searchTerm = '';
-    this.filterBooks();
   }
 
   public async addToCart(bookId: string): Promise<void> {

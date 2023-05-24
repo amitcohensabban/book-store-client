@@ -24,6 +24,8 @@ export class AllBooksComponent implements OnInit {
     this.cart.addBookToCart(userId, bookId)
       .subscribe(response => {
         console.log(response);
+        localStorage.setItem('price',response.totalPrice.toString());
+
       });
   }
   }

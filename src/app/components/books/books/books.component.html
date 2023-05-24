@@ -6,25 +6,28 @@
       [(ngModel)]="searchTerm"
       (input)="filterBooks()"
       placeholder="Search books..."
-    />
-    <div class="suggestions-container" *ngIf="searchTerm && filteredBooks.length > 0" >
+      (keydown.enter)="this.books = this.filteredBooks; this.searchTerm = ''"
+      (keydown.enter)="filteredBooks = searchTerm ? filteredBooks : searchBooks"
+      />
+    <div
+      class="suggestions-container"
+      *ngIf="searchTerm && filteredBooks.length > 0"
+    >
       <div
         class="suggestion"
         *ngFor="let book of filteredBooks"
-        (click)="selectBook(book)"
+        (click)="this.books = this.filteredBooks; this.searchTerm = ''"
       >
         {{ book.title }}
       </div>
     </div>
-
   </div>
 
   <div class="books-container">
     <div
       class="book"
       *ngFor="
-        let book of books
-          | paginate : { itemsPerPage: 3, currentPage: p }
+        let book of books | paginate : { itemsPerPage: 3, currentPage: p }
       "
     >
       <div
@@ -43,13 +46,18 @@
           {{ book.title | uppercase }}
         </div>
         <div>PRICE : {{ book.price | currency : "USD" }}</div>
-        <button class="button" (click)="selectedBook = book">VIEW DETAILS</button>
-        <button class="button" (click)="selectedBookCart = book; addToCart(selectedBookCart.id)">ADD TO CART</button>
-
+        <button class="button" (click)="selectedBook = book">
+          VIEW DETAILS
+        </button>
+        <button
+          class="button"
+          (click)="selectedBookCart = book; addToCart(selectedBookCart.id)"
+        >
+          ADD TO CART
+        </button>
       </div>
     </div>
   </div>
-
 
   <div *ngIf="selectedBook" class="modal">
     <div class="modal-content">
@@ -59,7 +67,6 @@
     </div>
   </div>
 
-
   <div class="pagination-container">
     <pagination-controls
       class="my-pagination"
@@ -67,5 +74,3 @@
     ></pagination-controls>
   </div>
 </div>
-
-
